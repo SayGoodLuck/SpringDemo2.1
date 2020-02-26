@@ -7,7 +7,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+
 public class RockMusic implements Music{
     private String name;
 
