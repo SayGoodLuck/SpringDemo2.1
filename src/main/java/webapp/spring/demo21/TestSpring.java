@@ -9,9 +9,22 @@ public class TestSpring {
            "applicationContext.xml"
         );
 
+        //test import from file "musicPlayer.properties"
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusic(Genre.ROCK);
-        musicPlayer.playMusic(Genre.CLASSICAL);
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
+
+        //Scope: prototype
+        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
+        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
+        //test prototype
+        System.out.println(classicalMusic1 == classicalMusic2);
+
+        //Scope: singleton
+        RockMusic rockMusic1 = context.getBean("rockMusic", RockMusic.class);
+        RockMusic rockMusic2 = context.getBean("rockMusic", RockMusic.class);
+        //test singleton
+        System.out.println(rockMusic1 == rockMusic2);
 
         context.close();
     }

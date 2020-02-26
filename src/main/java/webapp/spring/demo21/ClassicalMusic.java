@@ -1,6 +1,7 @@
 package webapp.spring.demo21;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 
 @Component
+@Scope("prototype")
 public class ClassicalMusic implements Music {
     private String name;
 
